@@ -10,9 +10,7 @@ request.onload = function () {
   var response = request.response;
   var parsedData = JSON.parse(response);
   console.log(parsedData);
-
-
-  
+ 
   for (var counter = 0; counter < 50; counter++){
     insert_container();
     var image_url = parsedData.data[counter].images.original.url;
@@ -26,21 +24,6 @@ request.onload = function () {
     
   };
 };
-
-// request.onload = function () {
-//   insert_container();
-//   var response = request.response;
-//   var parsedData = JSON.parse(response);
-//   console.log(parsedData);
-//   var image_url = parsedData.data.images.original.url;
-//   var image = document.createElement("img");
-//   image.setAttribute("src", image_url);
-//   image.style.height = "200px";
-//   image.style.width = "320";
-//   document
-//     .getElementById("parent-image")
-//     .insertAdjacentElement("afterbegin", image);
-// };
 
 request.send();
 

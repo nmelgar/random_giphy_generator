@@ -1,3 +1,4 @@
+import { random } from "superheroes";
 import { giphy_key } from "./key.js";
 
 let generate_button = document
@@ -5,12 +6,14 @@ let generate_button = document
   .addEventListener("click", generate_giphys());
 
 function generate_giphys() {
+  // random_num = Math.floor(Math.random() * 51);
+  // rand_number = toString(random_num);
   var request = new XMLHttpRequest();
   request.open(
     "GET",
     `https://api.giphy.com/v1/gifs/search?q=pets&api_key=${giphy_key}&rating=g&limit=50`
   );
-
+  
   request.onload = function () {
     var response = request.response;
     var parsedData = JSON.parse(response);

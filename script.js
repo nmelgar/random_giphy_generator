@@ -1,19 +1,44 @@
-import { random } from "superheroes";
+// import { random } from "superheroes";
 import { giphy_key } from "./key.js";
 
 let generate_button = document
   .querySelector("#generate-function")
   .addEventListener("click", generate_giphys());
 
+// let words = ["pets", "dogs", "cats", "cars", "sports"];
+// let randInt = randomGenerator(0, array.length - 1);
+// let word = words[randInt];
+
 function generate_giphys() {
   // random_num = Math.floor(Math.random() * 51);
   // rand_number = toString(random_num);
+  let words = [
+    "Pets",
+    "Dogs",
+    "Cats",
+    "Cars",
+    "Sports",
+    "Cartoons",
+    "Vehicles",
+    "Stars",
+    "Universe",
+    "Plants",
+    "Trees",
+    "Numbers",
+    "Food",
+    "Fishes",
+    "Movies",
+    "Avengers"
+  ];
+  let randInt = Math.floor(Math.random() * words.length);
+  let word = words[randInt];
+
   var request = new XMLHttpRequest();
   request.open(
     "GET",
-    `https://api.giphy.com/v1/gifs/search?q=pets&api_key=${giphy_key}&rating=g&limit=50`
+    `https://api.giphy.com/v1/gifs/search?q=${word}&api_key=${giphy_key}&rating=pg-13&limit=50`
   );
-  
+
   request.onload = function () {
     var response = request.response;
     var parsedData = JSON.parse(response);
@@ -56,6 +81,10 @@ function generate_giphys() {
       var button_group = document.createElement("div");
       button_group.classList.add("btn-group");
 
+      var original_image_link = document.createElement("a");
+      original_image_link.setAttribute("href", image_url);
+      original_image_link.setAttribute("target", "_blank");
+
       var original_image_button = document.createElement("button");
       original_image_button.classList.add(
         "btn",
@@ -73,7 +102,7 @@ function generate_giphys() {
 
       var smallElement = document.createElement("small");
       smallElement.classList.add("text-body-secondary");
-      smallElement.textContent = "Pets";
+      smallElement.textContent = word;
 
       images_container.appendChild(col_div_element);
       col_div_element.appendChild(parent_image);
@@ -82,7 +111,8 @@ function generate_giphys() {
       under_image.append(text_under_image);
       under_image.appendChild(div_under_paragraph);
       div_under_paragraph.appendChild(button_group);
-      button_group.appendChild(original_image_button);
+      button_group.appendChild(original_image_link);
+      original_image_link.appendChild(original_image_button);
       div_under_paragraph.appendChild(smallElement);
     }
   };

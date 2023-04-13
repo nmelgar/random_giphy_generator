@@ -11,14 +11,15 @@
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- CSS
-    +-- css files       (Bootstrap content for css files)
 
-+-- js
-    +-- js files        (Required js for Boostrap to work)
++-- CSS                 (Bootstrap content for css files)
+    +-- css files       
 
-+-- others
-    +-- other files     (other files for reference)
++-- js                  (Required js for Boostrap to work)
+    +-- js files        
+
++-- others              (other files for reference)
+    +-- other files     
 
 +-- index.html          (html file of the project)
 

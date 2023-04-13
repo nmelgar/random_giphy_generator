@@ -17,11 +17,12 @@ root                    (project root folder)
 +-- js
     +-- js files        (Required js for Boostrap to work)
 
++-- others
+    +-- other files     (other files for reference)
+
 +-- index.html          (html file of the project)
 
 +-- key.js              (Required key to work with Giphy API)
-
-+-- script_v1.js        (First version of the code just as reference)
 
 +-- script.js           (js file of the project)
 
